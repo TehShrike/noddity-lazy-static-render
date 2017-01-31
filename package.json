@@ -2,9 +2,10 @@
   "name": "noddity-lazy-static-render",
   "version": "1.0.0",
   "description": "Render Noddity posts on demand, and cache results in-memory",
-  "main": "index.js",
+  "main": "babel-runtime-index.js",
+  "browser": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tape test/*.js && jsmd readme.md && echo Readme checks out."
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,34 @@
   "bugs": {
     "url": "https://github.com/TehShrike/noddity-lazy-static-render/issues"
   },
-  "homepage": "https://github.com/TehShrike/noddity-lazy-static-render#readme"
+  "homepage": "https://github.com/TehShrike/noddity-lazy-static-render#readme",
+  "dependencies": {
+    "babel-plugin-transform-async-to-generator": "6.16.0",
+    "babel-polyfill": "6.16.0",
+    "babel-register": "6.16.3",
+    "noddity-linkifier": "2.2.2",
+    "noddity-render-static": "2.4.1",
+    "ractive": "0.8.9",
+    "then-denodeify": "1.0.1"
+  },
+  "devDependencies": {
+    "babelify": "7.3.0",
+    "jsmd": "0.3.1",
+    "level-mem": "0.18.0",
+    "noddity-butler": "2.6.2",
+    "tape": "4.6.3"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": "es2015",
+          "plugins": [
+            "transform-async-to-generator"
+          ]
+        }
+      ]
+    ]
+  }
 }
