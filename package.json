@@ -24,12 +24,12 @@
   },
   "homepage": "https://github.com/TehShrike/noddity-lazy-static-render#readme",
   "dependencies": {
-    "babel-plugin-transform-async-to-generator": "6.16.0",
-    "babel-polyfill": "6.16.0",
-    "babel-register": "6.16.3",
-    "noddity-linkifier": "2.2.2",
+    "babel-plugin-transform-async-to-generator": "6.22.0",
+    "babel-polyfill": "6.22.0",
+    "babel-register": "6.22.0",
+    "noddity-linkifier": "3.0.0",
     "noddity-render-static": "2.4.1",
-    "ractive": "0.8.9",
+    "ractive": "0.8.10",
     "then-denodeify": "1.0.1"
   },
   "devDependencies": {
