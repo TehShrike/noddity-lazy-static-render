@@ -6,6 +6,8 @@ Some stuff is still kind of hardcoded - for example, right now it assumes you ha
 
 ## API
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/TehShrike/noddity-lazy-static-render.svg)](https://greenkeeper.io/)
+
 This module exports a single function.
 
 ### `makeLazyRenderer({ butler, data = {}, indexHtml })`
