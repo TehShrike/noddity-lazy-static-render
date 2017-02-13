@@ -1,6 +1,6 @@
 {
   "name": "noddity-lazy-static-render",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Render Noddity posts on demand, and cache results in-memory",
   "main": "babel-runtime-index.js",
   "browser": "index.js",
