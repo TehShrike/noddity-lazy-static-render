@@ -27,10 +27,10 @@
     "babel-plugin-transform-async-to-generator": "6.16.0",
     "babel-polyfill": "6.16.0",
     "babel-register": "6.16.3",
-    "noddity-linkifier": "2.2.2",
-    "noddity-render-static": "2.4.1",
+    "noddity-linkifier": "~2.2.2",
+    "noddity-render-static": "~2.4.3",
     "ractive": "0.8.9",
-    "then-denodeify": "1.0.1"
+    "then-denodeify": "~1.0.1"
   },
   "devDependencies": {
     "babelify": "7.3.0",
