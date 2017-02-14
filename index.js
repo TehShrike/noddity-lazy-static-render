@@ -6,8 +6,9 @@ const Linkifier = require('noddity-linkifier')
 
 module.exports = function makeLazyRenderer({ butler, data = {}, indexHtml }) {
 	const linkifier = Linkifier('/')
-	const template = Ractive.parse(indexHtml, { preserveWhitespace: true })
+
 	const getPostPromise = denodeify(butler.getPost)
+	const replacingRender = makeReplacingRenderer(indexHtml)
 
 	let renderedPosts = mapFactory()
 
@@ -22,14 +23,14 @@ module.exports = function makeLazyRenderer({ butler, data = {}, indexHtml }) {
 		const postCache = renderedPosts[file]
 
 		if (!postCache[key]) {
-			postCache[key] = render({ butler, getPostPromise, data, sessionData, file, linkifier, template })
+			postCache[key] = render({ butler, getPostPromise, data, sessionData, file, linkifier, replacingRender })
 		}
 
 		return postCache[key]
 	}
 }
 
-async function render({ butler, getPostPromise, data, sessionData, file, linkifier, template }) {
+async function render({ butler, getPostPromise, data, sessionData, file, linkifier, replacingRender }) {
 	const renderData = Object.assign({}, data, sessionData)
 
 	const [ templatePost, postToRender ] = await Promise.all([
@@ -43,15 +44,28 @@ async function render({ butler, getPostPromise, data, sessionData, file, linkifi
 		data: renderData,
 	})
 
-	return new Ractive({
-		template,
+	return replacingRender({
+		html,
 		data: {
-			html,
 			metadata: postToRender.metadata
 		}
-	}).toHTML()
+	})
 }
 
 function mapFactory() {
 	return Object.create(null)
+}
+
+function makeReplacingRenderer(indexHtml) {
+	const uniqueNonMustacheString = `This string should be reasonably unique, one would hope. be02a4d5-e4c9-450e-8e99-4536cb1cb2ac`
+	const template = Ractive.parse(indexHtml.replace('{{{html}}}', uniqueNonMustacheString), { preserveWhitespace: true })
+
+	return function render({ html, data }) {
+		const output = new Ractive({
+			template,
+			data
+		}).toHTML()
+
+		return output.replace(uniqueNonMustacheString, html)
+	}
 }
