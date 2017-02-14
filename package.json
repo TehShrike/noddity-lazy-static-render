@@ -29,7 +29,7 @@
     "babel-register": "6.16.3",
     "noddity-linkifier": "~2.2.2",
     "noddity-render-static": "~2.4.3",
-    "ractive": "0.8.9",
+    "ractive": "0.8.10",
     "then-denodeify": "~1.0.1"
   },
   "devDependencies": {
