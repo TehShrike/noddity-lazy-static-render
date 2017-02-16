@@ -1,6 +1,6 @@
 {
   "name": "noddity-lazy-static-render",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Render Noddity posts on demand, and cache results in-memory",
   "main": "build.js",
   "scripts": {
