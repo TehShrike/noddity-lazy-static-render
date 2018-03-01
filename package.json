@@ -1,6 +1,9 @@
 {
   "name": "noddity-lazy-static-render",
   "version": "1.1.0",
+  "engines": {
+    "node": ">=8"
+  },
   "description": "Render Noddity posts on demand, and cache results in-memory",
   "main": "build.js",
   "scripts": {
@@ -25,9 +28,9 @@
   "homepage": "https://github.com/TehShrike/noddity-lazy-static-render#readme",
   "dependencies": {
     "noddity-linkifier": "~2.2.2",
-    "noddity-render-static": "~2.4.3",
-    "ractive": "0.8.10",
-    "then-denodeify": "~1.0.1"
+    "noddity-render-static": "~3.0.1",
+    "pify": "~3.0.0",
+    "ractive": "~0.8.14"
   },
   "devDependencies": {
     "babel-plugin-transform-async-to-generator": "6.16.0",
